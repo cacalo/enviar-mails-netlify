@@ -1,0 +1,97 @@
+
+$color-text: #d2d2d2;
+$color-highlight: #ffffff;
+$color-accent: #f39422;
+$color-background-darker: #1c1e25;
+$color-background: #272a34;
+$color-disabled: #d8d8d8;
+$border-radius: 2%;
+
+main{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: auto;
+  font-family: "Poppins", Arial, sans-serif;
+  width: 750px;
+}
+
+body, p, input, textarea, input::placeholder, textarea::placeholder, a{
+  color: $color-text;
+}
+
+input, textarea{
+  background-color: unset;
+  border: unset;
+  border-bottom: 1px solid $color-text;
+  padding: 1rem 0;
+  margin-bottom: 1rem;
+}
+
+h1, h2, strong, button{
+  color: $color-highlight;
+}
+
+button:disabled{
+  background-color: $color-disabled;
+  color: $color-background-darker;
+  cursor: not-allowed;
+}
+
+#form-container{
+  background-color: $color-background;
+  border-radius: $border-radius 0 0 $border-radius;
+}
+
+
+#data-container{
+  background-color: $color-background-darker;
+  border-radius: 0 $border-radius $border-radius 0;
+}
+
+.material-symbols-outlined{
+  color: $color-highlight;
+  padding: 1rem;
+  border-radius: 50%;
+  background-color:  $color-background;
+  cursor:default;
+}
+
+.main-container{
+  padding:1rem;
+}
+
+input, textarea{
+  width: 100%;
+}
+
+ul{
+  padding: 0;
+  & li{
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+}
+
+button{
+  background-color: $color-accent;
+  padding: 1rem;
+  border: unset;
+  border-radius: $border-radius;
+  cursor: pointer;
+}
+
+@media(width < 800px){
+  main{
+    max-width: 500px;
+    grid-template-columns: 1fr;
+  }
+  #form-container{
+    border-radius: $border-radius $border-radius 0 0;
+  }
+  #data-container{
+    border-radius: 0 0 $border-radius $border-radius;
+  }
+}

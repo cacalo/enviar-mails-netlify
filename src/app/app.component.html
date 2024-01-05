@@ -1,0 +1,60 @@
+<main>
+  <div id="form-container" class="main-container">
+    <h1>Escribinos</h1>
+    <form (ngSubmit)="enviarMensaje($event)" #ngform="ngForm">
+      <input type="text" name="name" id="name" placeholder="Nombre" #nombre="ngModel" [(ngModel)]="form.nombre" required="true" minlength="3" autocomplete="name">
+      <input type="email" name="email" id="email" placeholder="Correo electrónico"  #email="ngModel" [(ngModel)]="form.email"  required="true" autocomplete="email">
+      <input type="text" name="subject" id="subject" placeholder="Asunto"  #asunto="ngModel" [(ngModel)]="form.asunto" autocomplete="off">
+      <textarea name="message" id="message" cols="30" rows="6" placeholder="Mensaje"  #mensaje="ngModel" [(ngModel)]="form.mensaje"  required="true" minlength="15" autocomplete="off"></textarea>
+      <button type="submit" [disabled]="cargando() || exito() || ngform.invalid">Enviar mensaje</button>
+      @if(cargando()){
+        <p>Enviando mensaje</p>
+      }
+      @if(exito()){
+        <p>Mensaje enviado</p>
+      } @else if (exito() === false){
+        <p>Error enviando mensaje</p>
+      }
+    </form>
+  </div>
+  <div id="data-container"  class="main-container">
+    <h2>Información de contacto</h2>
+    <p>Estamos abiertos a sugerencias o contactos en general.</p>
+    <ul>
+      <li>
+        <span class="material-symbols-outlined">home</span>
+        <p>
+          <strong>Dirección: </strong>
+          <a href="https://maps.google.com" target="_blank">
+            Av. San Martín 1234
+          </a>
+        </p>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">call</span>
+        <p>
+          <strong>Teléfono: </strong>
+          <a href="tel:123456789">
+            (+54) 0341-4658631
+          </a>
+        </p>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">email</span>
+        <p>
+          <strong>Email: </strong>
+          <a href="mailto:test@puntojson.com">
+            test&#64;puntojson.com
+          </a>
+        </p>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">globe</span>
+        <p>
+          <strong>Sitio web: </strong>
+          <a href="https:puntojson.com" target="_blank">puntojson.com</a>
+        </p>
+      </li>
+    </ul>
+  </div>
+</main>
