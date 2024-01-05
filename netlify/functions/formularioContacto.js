@@ -32,11 +32,11 @@ const transport = nodemailer.createTransport({
   }
 
 
-  function generarCuerpoMensaje(params) {
-    return `Formulario de contacto enviado por ${params.nombre} - ${params.email}.
-      El mensaje es el siguiente:
-      ${params.mensaje}
-      `;
+function generarCuerpoMensaje(params) {
+return `Formulario de contacto enviado por ${params.nombre} - ${params.email}.
+El mensaje es el siguiente:
+${params.mensaje}
+`;
   }
 
 exports.handler = async (event, context)=> {
