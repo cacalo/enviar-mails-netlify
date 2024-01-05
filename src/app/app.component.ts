@@ -24,8 +24,14 @@ export class AppComponent {
   async enviarMensaje(event: SubmitEvent) {
     event.preventDefault();
     this.cargando.set(true);
-    //Fetch
+    const res = await fetch("/.netlify/functions/formularioContacto", {
+      method: "POST",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify(this.form)
+    })
     this.cargando.set(false);
-    //this.exito.set(res.ok);
+    this.exito.set(res.ok);
   }
 }
